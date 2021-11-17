@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Fizzbuzz
 {
@@ -7,27 +8,74 @@ namespace Fizzbuzz
         static void Main(string[] args)
         {
             
-            for (int i = 1; i <= 100; i++) 
+            for (int i = 1; i <= 255; i++) 
             { 
-                string printwords = "";
+                // Creating a list of strings
+                List<string> words = new List<string>();
+                
                 if (i%3 == 0)
                 {
-                    printwords = printwords += "Fizz";
+                    words.Add("Fizz");
                 }
                 if (i%5 == 0)
                 {
-                    printwords = printwords += "Buzz";
+                    words.Add("Buzz");
+                }
+                
+                if (i%7 == 0)
+                {
+                    words.Add("Bang");
                 }
 
-                if (printwords != "")
+                if (i%11 == 0)
                 {
-                    Console.WriteLine(printwords);
+                    words.Clear();
+                    words.Add("Bong");
+                }
+
+                if (i % 13 == 0)
+                {
+                    if (words.Contains("Bang"))
+                    {
+                        int j = words.IndexOf("Bang");
+                        words.Insert(j, "Fezz");
+                    }
+                    else if (words.Contains("Bong"))
+                    {
+                        int j = words.IndexOf("Bong");
+                        words.Insert(j, "Fezz");
+                    }
+                    else if (words.Contains("Buzz"))
+                    {
+                        int j = words.IndexOf("Buzz");
+                        words.Insert(j, "Fezz");
+                    }
+                    else
+                    {
+                        words.Add("Fezz");
+                    }
+                    
+                }
+
+                if (i % 17 == 0)
+                {
+                    words.Reverse();
+                }
+                    
+                    
+                int listLength = words.Count;
+
+                if (listLength == 0)
+                {
+                    Console.WriteLine(i);
                 }
                 else
                 {
-                    Console.WriteLine(i);
+                    words.ForEach(Console.Write);
+                    Console.WriteLine();
                 }
             }
         }
     }
 }
+
