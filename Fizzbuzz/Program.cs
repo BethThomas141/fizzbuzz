@@ -6,23 +6,26 @@ namespace Fizzbuzz
     {
         static void Main(string[] args)
         {
+            
             for (int i = 1; i <= 100; i++) 
-            {
-                if (i%3 == 0 && i%5 == 0)
+            { 
+                string printwords = "";
+                if (i%3 == 0)
                 {
-                    Console.WriteLine("FizzBuzz");
+                    printwords = printwords += "Fizz";
                 }
-                else if (i%3 == 0)
+                if (i%5 == 0)
                 {
-                    Console.WriteLine("Fizz");
+                    printwords = printwords += "Buzz";
                 }
-                else if (i%5 == 0)
+
+                if (printwords != "")
                 {
-                    Console.WriteLine("Buzz");
+                    Console.WriteLine(printwords);
                 }
                 else
                 {
-                    Console.WriteLine(i); 
+                    Console.WriteLine(i);
                 }
             }
         }
